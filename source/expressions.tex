@@ -1961,10 +1961,11 @@ static_cast<D&>(br);            // produces lvalue to the original \tcode{d} obj
 \exitexample 
 
 \pnum
-A glvalue of type ``\cvqual{cv1} \tcode{T1}'' can be cast to type ``rvalue
+A glvalue, class prvalue, or array prvalue of
+type ``\cvqual{cv1} \tcode{T1}'' can be cast to type ``rvalue
 reference to \cvqual{cv2} \tcode{T2}'' if ``\cvqual{cv2} \tcode{T2}'' is
 reference-compatible with ``\cvqual{cv1}
-\tcode{T1}''~(\ref{dcl.init.ref}). If the glvalue is not a bit-field,
+\tcode{T1}''~(\ref{dcl.init.ref}). If the value is not a bit-field,
 the result refers to the object or the specified base class subobject
 thereof; otherwise, the lvalue-to-rvalue conversion~(\ref{conv.lval})
 is applied to the bit-field and the resulting prvalue is used as the
@@ -1977,7 +1978,7 @@ a program that necessitates such a cast is ill-formed.
 An expression \tcode{e} can be explicitly converted to a type
 \tcode{T} using a \tcode{static_cast} of the form
 \tcode{static_cast<T>(e)} if the declaration \tcode{T t(e);} is
-well-formed, for some invented temporary variable
+well-formed, for some invented variable
 \tcode{t}~(\ref{dcl.init}). The effect of such an explicit conversion is
 the same as performing the declaration and initialization and then using
 the temporary variable as the result of the conversion. The expression
